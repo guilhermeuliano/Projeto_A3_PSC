@@ -21,6 +21,9 @@ public class Main {
             case 1:
                 InsertionSort.sort(arr);
                 break;
+            case 2:
+                QuickSort.sort(arr, 0, arr.length - 1);
+                break;
             default:
                 System.out.println("Escolha inválida.");
                 scanner.close();
