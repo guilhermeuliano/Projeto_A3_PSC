@@ -24,6 +24,9 @@ public class Main {
             case 2:
                 QuickSort.sort(arr, 0, arr.length - 1);
                 break;
+            case 3:
+                BubbleSort.sort(arr);
+                break;
             default:
                 System.out.println("Escolha inválida.");
                 scanner.close();
