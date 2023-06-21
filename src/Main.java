@@ -4,9 +4,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.time.Duration;
+import java.time.Instant;
 
 public class Main {
     public static void main(String[] args) {
+        Instant inicio = Instant.now();
         // Aqui é o caminho do arquivo a ser lido pode ser usado "\\" ou "/" dependendo da IDE.
         String caminhoArquivo = "D:\\Downloads\\Java\\Numeros.txt";
         // Aqui é feito a leitura do arquivo .txt e salvo em uma variável
@@ -82,6 +85,12 @@ public class Main {
                 System.out.println("Escolha inválida.");
                 break;
         }
+        Instant fim = Instant.now();
+        Duration duracao = Duration.between(inicio, fim);
+        long minutos = duracao.toMinutes();
+        long segundos = duracao.getSeconds() % 60;
+        System.out.println("");
+        System.out.println("Tempo de execução: " + minutos + " minutos e " + segundos + " segundos");
     }
 
     private static List<Long> lerNumerosArquivo (String caminhoArquivo){
