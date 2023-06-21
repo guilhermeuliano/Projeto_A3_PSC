@@ -13,15 +13,15 @@ public class Main {
         List<Long> numeros = lerNumerosArquivo(caminhoArquivo);
 
         // Possíveis erros nesse if;
-            // Se não tiver números
-            // Se não for um arquivo que a IDE entenda como de leitura.
+        // Se não tiver números
+        // Se não for um arquivo que a IDE entenda como de leitura.
         if (numeros.isEmpty()) {
             System.out.println("Não foram encontrados números no arquivo.");
             return;
         }
 
         // Um Scanner básico só pra fazer a inserção da operação que o usuário escolher.
-            // A escolha será salva na variável "escolhaOrdenacao".
+        // A escolha será salva na variável "escolhaOrdenacao".
         Scanner scanner = new Scanner(System.in);
         System.out.println("Escolha o método de Ordenação:\n1. InsertionSort\n2. QuickSort\n3. BubbleSort");
         int escolhaOrdenacao = scanner.nextInt();
@@ -53,7 +53,7 @@ public class Main {
         }
 
         // Após a variável salva o procedimento passa para o método de pesquisa que o usuário vai escolher.
-            // A escolha será salva na variável "escolhaPesquisa".
+        // A escolha será salva na variável "escolhaPesquisa".
         System.out.println("\nEscolha o método de Pesquisa:\n1. Pesquisa Linear\n2. Pesquisa Binária");
         int escolhaPesquisa = scanner.nextInt();
 
@@ -81,27 +81,27 @@ public class Main {
             default:
                 System.out.println("Escolha inválida.");
                 break;
-            }
-        }
-
-        private static List<Long> lerNumerosArquivo (String caminhoArquivo){
-            List<Long> numeros = new ArrayList<>();
-
-            try (BufferedReader br = new BufferedReader(new FileReader(caminhoArquivo))) {
-                String linha;
-                while ((linha = br.readLine()) != null) {
-                    try {
-                        long numero = Long.parseLong(linha);
-                        numeros.add(numero);
-                    } catch (NumberFormatException e) {
-                        // Aqui ele vai ignorar as linhas que não são números.
-                    }
-                }
-            } catch (IOException e) {
-                System.out.println("Não foi possível ler o arquivo!");
-                e.printStackTrace();
-            }
-
-            return numeros;
         }
     }
+
+    private static List<Long> lerNumerosArquivo (String caminhoArquivo){
+        List<Long> numeros = new ArrayList<>();
+
+        try (BufferedReader br = new BufferedReader(new FileReader(caminhoArquivo))) {
+            String linha;
+            while ((linha = br.readLine()) != null) {
+                try {
+                    long numero = Long.parseLong(linha);
+                    numeros.add(numero);
+                } catch (NumberFormatException e) {
+                    // Aqui ele vai ignorar as linhas que não são números.
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("Não foi possível ler o arquivo!");
+            e.printStackTrace();
+        }
+
+        return numeros;
+    }
+}
